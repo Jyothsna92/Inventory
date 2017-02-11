@@ -1,0 +1,23 @@
+<div class="container">
+<% @items.each do |item| %>
+  <div class="row">
+    <div class="col-sm-6">
+       <div class="panel panel-primary">
+          <div class="panel-heading"><%= item.name %></div>
+          <div class="panel-body"><%= item.description %> <br>
+            Price: <%= item.price %>
+          </div>
+          <div class="panel-footer text-center">
+              <%= link_to 'Show', item %> 
+          <% if can? :update, item %>
+            <%= link_to 'Edit', edit_item_path(item) %> 
+          <% end %>
+          <% if can? :destroy, item %>
+            <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %> 
+          <% end %>
+          </div>
+      </div>
+    </div>
+  </div>
+ <% end %>
+</div>
