@@ -11,12 +11,11 @@
 #
 default: &default
   adapter: postgresql
-  encoding: utf8
-  pool: 5
-  port: 3306
-  #username: root
-  #password: 'root'
   host: localhost
+  #username: pguser
+  #password: pguser
+  pool: 5
+  timeout: 5000
 
 development:
   <<: *default
